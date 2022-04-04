@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLNS" Class="QLNS1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.TblBoPhan" Member="TblBoPhans">
+    <Type Name="TblBoPhan">
+      <Column Name="MaBoPhan" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenBoPhan" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NgayThanhLap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="TblBoPhan_TblPhongBan" Member="TblPhongBans" ThisKey="MaBoPhan" OtherKey="MaBoPhan" Type="TblPhongBan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblPhongBan" Member="TblPhongBans">
+    <Type Name="TblPhongBan">
+      <Column Name="MaBoPhan" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaPhong" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenPhong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayThanhLap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TblBoPhan_TblPhongBan" Member="TblBoPhan" ThisKey="MaBoPhan" OtherKey="MaBoPhan" Type="TblBoPhan" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
